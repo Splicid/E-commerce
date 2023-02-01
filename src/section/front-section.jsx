@@ -5,7 +5,7 @@ const frontSection = () => {
     return(
         <div className="content">
             <section className="content-child">
-                Hello World
+                Img 
             </section>
         </div>
     )
