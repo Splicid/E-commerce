@@ -4,7 +4,7 @@ import "./grid.css"
 
 const Grid = () => {
     return (
-        <div className="grid">
+        <div className="cards">
             <div className="card"> One</div>
             <div className="card"> Two</div>
             <div className="card"> Three</div>
