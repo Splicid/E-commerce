@@ -1,11 +1,15 @@
 import "./grid.css"
+import shop from "../assets/shop1.jpg"
 
 
 
 const Grid = () => {
     return (
         <div className="cards">
-            <div className="card"> One</div>
+            <div className="card"> 
+                <img src={shop} className="card-img" alt="" />
+                <h1> 99.99</h1>
+            </div>
             <div className="card"> Two</div>
             <div className="card"> Three</div>
             <div className="card"> Four</div>
