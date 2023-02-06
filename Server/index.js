@@ -13,6 +13,7 @@ const db_insert = async () => {
     //const ins = await Shop.save({title: "Shirt", price: 99.99, body: "Black sweater"})
     //console.log(ins)
     const tes = await Shop.find({})
+    //const collection = await Shop.createCollection()
     console.log(tes)
 }
 db_insert()
