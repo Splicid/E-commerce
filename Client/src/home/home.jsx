@@ -1,4 +1,5 @@
 import "./home.css"
+import img from "../assets/section-one.png"
 import Grid from '../grid/grid'
 
 const Home = () => {
@@ -6,7 +7,7 @@ const Home = () => {
         <div>
             <div className="content">
             <section className="content-child">
-                Img 
+                <img src={img} alt="" />
             </section>
         </div>
             <Grid/>

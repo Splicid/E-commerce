@@ -1,10 +1,17 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const shop = new mongoose.Schema({
-  title: String, // String is shorthand for {type: String}
+const Shop = new mongoose.Schema({
+  title: {
+    type: String,
+    unique: true,
+    required:true},
   price: Number,
+  createdAt:{
+    type: Date,
+    default: () => Date.now(),
+  },
   body:  String,
 }, {collection: "Shop"});
 
-module.exports = mongoose.model("Shop", shop);
+module.exports = mongoose.model("Shop", Shop);
