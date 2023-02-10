@@ -4,7 +4,7 @@ import Grid from '../grid/grid'
 
 const Home = () => {
     return(
-        <div>
+        <div className="main-content">
             <div className="content">
             <section className="content-child">
                 <img src={img} alt="" />
