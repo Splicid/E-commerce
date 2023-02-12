@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import Navbar from './navbar/navbar'
 import { Routes, Route, Link } from 'react-router-dom';
 import Grid from './grid/grid'
+import SignUpPage from './form/form';
 import Home from './home/home'
 import './App.css'
 
@@ -14,7 +15,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/test" element={<Grid/>}/>
+        <Route path="/test" element={<SignUpPage />}/>
       </Routes>
     </div>
   )
