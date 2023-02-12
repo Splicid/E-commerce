@@ -1,5 +1,5 @@
 import "./grid.css"
-import shop from "../assets/shop1.jpg"
+import shop from "../assets/stock-photo.jpeg"
 
 
 
@@ -11,11 +11,18 @@ const Grid = () => {
                     <img src={shop} className="card-img" alt="" />
                     <h1> 99.99</h1>
                 </div>
-                <div className="card"> Two</div>
-                <div className="card"> Three</div>
-                <div className="card"> Four</div>
-                <div className="card"> Five</div>
-                <div className="card"> Six</div>
+                <div className="card"> 
+                    <img src={shop} className="card-img" alt="" />
+                    <h1> 99.99</h1>
+                </div>
+                <div className="card"> 
+                    <img src={shop} className="card-img" alt="" />
+                    <h1> 99.99</h1>
+                </div>
+                <div className="card"> 
+                    <img src={shop} className="card-img" alt="" />
+                    <h1> 99.99</h1>
+                </div>
             </div>
         </section>
     )

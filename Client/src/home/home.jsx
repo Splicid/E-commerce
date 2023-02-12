@@ -1,5 +1,5 @@
 import "./home.css"
-import img from "../assets/section-one.png"
+import img from "../assets/stock-photo.jpeg"
 import Grid from '../grid/grid'
 
 const Home = () => {
