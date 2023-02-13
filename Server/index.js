@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/insert', async (req, res) => {
+    console.log(req.body.title)
     //const insert = await Shop.create({title: "Black Jeans", price: 100.00, body: "Nice black jeans for casual events" })
 })
 

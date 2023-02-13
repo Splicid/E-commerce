@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "proxy": "https://127.0.0.1:3000",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

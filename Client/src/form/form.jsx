@@ -2,47 +2,53 @@ import React, { useState } from "react";
 import "./form.css"
 
 const SignUpPage = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
+  const [body, setBody] = useState("");
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log("Username: ", username);
-    console.log("Email: ", email);
-    console.log("Password: ", password);
+    console.log("Title: ", title);
+    console.log("Price: ", price);
+    console.log("Body: ", body);
   };
 
   return (
     <form className="sign-up-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="title">Title:</label>
         <input
           type="text"
-          id="username"
-          value={username}
-          onChange={event => setUsername(event.target.value)}
+          id="title"
+          value={title}
+          onChange={event => setTitle(event.target.value)}
         />
       </div>
       <div className="form-group">
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="price">Price:</label>
         <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={event => setEmail(event.target.value)}
+          type="price"
+          id="price"
+          value={price}
+          onChange={event => setPrice(event.target.value)}
         />
       </div>
       <div className="form-group">
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={event => setPassword(event.target.value)}
+        <label htmlFor="body">Body:</label>
+        <textarea
+          type="body"
+          id="body"
+          rows="10"
+          cols="40"
+          value={body}
+          onChange={event => setBody(event.target.value)}
         />
       </div>
-      <button type="submit">Sign Up</button>
+      <div className="form-group">
+        <label htmlFor="type"> Filename </label>
+        <input type="file" id="myFile" name="filename" />
+      </div>
+      <button type="submit"> Submit </button>
     </form>
   );
 };

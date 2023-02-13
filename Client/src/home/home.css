@@ -13,11 +13,14 @@
 
 .content-child {
     height: 70vh;
+    object-fit: cover;
     overflow: hidden;
+    object-position: bottom;
 }
 
 .content-child img{
 
     height: 100%;
+    width: 100%;
     object-fit: fill;
 }
