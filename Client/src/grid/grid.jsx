@@ -4,18 +4,16 @@ import shop from "../assets/stock-photo.jpeg"
 
 const Grid = () => {
 
-    const [data, setData] = useState([]);
+    const [datas, setDatas] = useState([]);
     const [error, setError] = useState(null);
   
     useEffect(() => {
       async function fetchData() {
         try {
-          fetch('https://dummyjson.com/products/')
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data.products)
-            setData(data)
-          })
+            const response = await fetch('https://dummyjson.com/products/');
+            const json = await response.json();
+            setDatas(json.products)
+            console.log(json)
         } catch (err) {
           setError(err);
         }
@@ -27,16 +25,15 @@ const Grid = () => {
     return (
         <section className="grid-content">
             <div className="cards">
-            {error && <div>Error: {error.message}</div>}
-            {data.map((p) => {
-                <p key={p.id}>{p.title}</p>
-            })
-
-            }
-                <div className="card"> 
-                    <img src={shop} className="card-img" alt="" />
-                    <h1> 88.99</h1>
-                </div>
+                    {datas.map(element => {
+                        return (
+                            <div className="card">
+                                <img src={element.images[0]} className="card-img"/>
+                                <h3 className='card-title'> {element.title}</h3>
+                                <h1> ${element.price}</h1>
+                            </div>
+                        )
+                    })}
             </div>
         </section>
     )
