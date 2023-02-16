@@ -10,8 +10,8 @@ const SignUpPage = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    axios.post('http://localhost:3000/post_name', {
-      title: "place"
+    axios.post('http://localhost:3000/poster', {
+      title: title
     })
     .then(response => {
       console.log(response)

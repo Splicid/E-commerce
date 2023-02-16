@@ -4,16 +4,19 @@ const { default: mongoose } = require("mongoose");
 const Shop = require("./schema/schema");
 const bodyParser = require('body-parser');
 const app = expres()
+const cors = require("cors")
 connectDB()
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors())
+app.use(expres.json())
 
 app.get('/', (req, res) => {
     res.json({user: 'geek'})
 })
 
-app.get('/post_name', async (req, res) => {
+app.post('/poster', async (req, res) => {
     console.log("We hit the post")
     console.log("from server", req.body.title) 
     //const insert = await Shop.create({title: "Black Jeans", price: 100.00, body: "Nice black jeans for casual events" })
