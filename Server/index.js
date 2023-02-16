@@ -13,8 +13,9 @@ app.get('/', (req, res) => {
     res.json({user: 'geek'})
 })
 
-app.get('/insert', async (req, res) => {
-    console.log(req.body.title)
+app.get('/post_name', async (req, res) => {
+    console.log("We hit the post")
+    console.log("from server", req.body.title) 
     //const insert = await Shop.create({title: "Black Jeans", price: 100.00, body: "Nice black jeans for casual events" })
 })
 

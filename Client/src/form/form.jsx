@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios'
 import "./form.css"
 
 const SignUpPage = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [body, setBody] = useState("");
+  const [data, setData] = useState({})
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log("Title: ", title);
-    console.log("Price: ", price);
-    console.log("Body: ", body);
+    axios.post('http://localhost:3000/post_name', {
+      title: "place"
+    })
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+
+    // console.log("Title: ", title);
+    // console.log("Price: ", price);
+    // console.log("Body: ", body);
   };
 
   return (
@@ -20,6 +32,7 @@ const SignUpPage = () => {
         <input
           type="text"
           id="title"
+          name="title"
           value={title}
           onChange={event => setTitle(event.target.value)}
         />
@@ -29,6 +42,7 @@ const SignUpPage = () => {
         <input
           type="price"
           id="price"
+          name="price"
           value={price}
           onChange={event => setPrice(event.target.value)}
         />
@@ -38,6 +52,7 @@ const SignUpPage = () => {
         <textarea
           type="body"
           id="body"
+          name="body"
           rows="10"
           cols="40"
           value={body}
