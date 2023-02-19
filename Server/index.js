@@ -17,9 +17,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/poster', async (req, res) => {
-    console.log("We hit the post")
-    console.log("from server", req.body.title) 
-    //const insert = await Shop.create({title: "Black Jeans", price: 100.00, body: "Nice black jeans for casual events" })
+    console.log(req.file)
+    res.end()
+    //const insert = await Shop.create({title: req.body.title, price: req.body.price, body: req.body.body })
 })
 
 const db_insert = async () => {

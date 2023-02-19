@@ -7,14 +7,23 @@ const SignUpPage = () => {
   const [price, setPrice] = useState("");
   const [body, setBody] = useState("");
   const [data, setData] = useState({})
+  const [selectedFile, setSelectedFile] = React.useState(null);
 
   const handleSubmit = event => {
     event.preventDefault();
-    axios.post('http://localhost:3000/poster', {
-      title: title
+    const formData = new FormData()
+    formData.append("selectedFile", selectedFile)
+    console.log(selectedFile)
+    axios.post('http://localhost:3000/poster', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      title: title,
+      price: price,
+      body: body
     })
     .then(response => {
-      console.log(response)
+      console.log(response.data)
     })
     .catch(error => {
       console.log(error)
@@ -61,7 +70,7 @@ const SignUpPage = () => {
       </div>
       <div className="form-group">
         <label htmlFor="type"> Filename </label>
-        <input type="file" id="myFile" name="filename" />
+        <input type="file" id="myFile" name="filename" onChange={event => setSelectedFile(event.target.files[0])} />
       </div>
       <button type="submit"> Submit </button>
     </form>
