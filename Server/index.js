@@ -5,8 +5,13 @@ const Shop = require("./schema/schema");
 const bodyParser = require('body-parser');
 const app = expres()
 const cors = require("cors")
+const multer  = require('multer');
+const {GridFsStorage} = require('multer-gridfs-storage');
+console.log(process.env.URI)
+const dotenv = require('dotenv').config({path: __dirname+'/.env'});
+const storage = new GridFsStorage(process.env.URI);
+const upload = multer({ storage });
 connectDB()
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors())
@@ -16,7 +21,7 @@ app.get('/', (req, res) => {
     res.json({user: 'geek'})
 })
 
-app.post('/poster', async (req, res) => {
+app.post('/poster', upload.single('file'),async (req, res) => {
     console.log(req.file)
     res.end()
     //const insert = await Shop.create({title: req.body.title, price: req.body.price, body: req.body.body })
