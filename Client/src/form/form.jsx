@@ -11,27 +11,9 @@ const SignUpPage = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const formData = new FormData()
-    formData.append("selectedFile", selectedFile)
     console.log(selectedFile)
-    axios.post('http://localhost:3000/poster', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      },
-      title: title,
-      price: price,
-      body: body
+    axios.post('http://localhost:3000/poster', selectedFile, {
     })
-    .then(response => {
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-
-    // console.log("Title: ", title);
-    // console.log("Price: ", price);
-    // console.log("Body: ", body);
   };
 
   return (
@@ -70,7 +52,7 @@ const SignUpPage = () => {
       </div>
       <div className="form-group">
         <label htmlFor="type"> Filename </label>
-        <input type="file" id="myFile" name="filename" onChange={event => setSelectedFile(event.target.files[0])} />
+        <input type="file" name="filename" onChange={event => setSelectedFile(event.target.files[0])} />
       </div>
       <button type="submit"> Submit </button>
     </form>
