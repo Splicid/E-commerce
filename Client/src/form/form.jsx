@@ -11,8 +11,12 @@ const SignUpPage = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(selectedFile)
-    axios.post('http://localhost:3000/poster', selectedFile, {
+    let formData = new FormData()
+    formData.append("selectedFile", selectedFile)
+    console.log(formData)
+    axios.post('http://localhost:3000/poster', formData, {
+      headers: {"Content-Type": "multipart/form-data"},
+      selectedFile,
     })
   };
 
