@@ -16,8 +16,7 @@ app.get('/', (req, res) => {
     res.json({user: 'geek'})
 })
 
-app.post('/poster', upload.single('file'), async (req, res) => {
-    console.log(req.file)
+app.post('/poster', upload.single('selectedFile'), async (req, res) => {
     if (req.file){
         console.log("True")
     } else {
