@@ -15,6 +15,9 @@ const SignUpPage = () => {
     formData.append("selectedFile", selectedFile)
     axios.post('http://localhost:3000/poster', formData, {
       headers: {"Content-Type": "multipart/form-data"},
+      title: title,
+      rice: price,
+      body: body
     })
   };
 
