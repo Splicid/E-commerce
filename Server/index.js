@@ -8,7 +8,7 @@ const cors = require("cors");
 const {upload} = require("./middleware/storage");
 connectDB()
 
-app.use(bodyParser.urlencoded({ extended: true, limit:'50mb' }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 app.use(express.json())
 
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/poster', upload.single('selectedFile'), async (req, res) => {
-    const data = req
+    const data = req.body.title
     console.log(data)
     if (req.file){
         console.log("True")
