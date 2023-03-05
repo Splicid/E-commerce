@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
     res.json({user: 'geek'})
 })
 
-app.post('/poster', upload.single('selectedFile'), async (req, res) => {
-    const data = req.body.title
+app.post('/poster', upload.array('selectedFile'), async (req, res) => {
+    const data = req.body.selectedFile
     console.log(data)
     if (req.file){
         console.log("True")
