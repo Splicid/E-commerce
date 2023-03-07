@@ -13,6 +13,9 @@ const SignUpPage = () => {
     event.preventDefault();
     let formData = new FormData()
     formData.append("selectedFile", selectedFile)
+    formData.append("price", price)
+    formData.append("title", title)
+    formData.append("body", body)
     axios.post('http://localhost:3000/poster', formData, {
       headers: {"Content-Type": "multipart/form-data"},
     })

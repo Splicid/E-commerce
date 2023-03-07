@@ -18,6 +18,7 @@ const storage = new GridFsStorage({
           const filename = file.originalname
           const fileInfo = {
             filename: filename,
+            reference: [{ type: Schema.Types.ObjectId, ref: 'Shop' }],
             bucketName: 'uploads'
           }
           resolve(fileInfo)
