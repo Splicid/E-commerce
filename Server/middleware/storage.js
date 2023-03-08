@@ -1,7 +1,9 @@
 const crypto = require('crypto');
 const multer  = require('multer');
 const {GridFsStorage} = require('multer-gridfs-storage');
+const { default: mongoose } = require("mongoose");
 const dotenv = require('dotenv');
+const { Schema } = require('mongoose');
 dotenv.config({path: __dirname+'/../.env'});
 
 const storage = new GridFsStorage({
@@ -18,7 +20,6 @@ const storage = new GridFsStorage({
           const filename = file.originalname
           const fileInfo = {
             filename: filename,
-            reference: [{ type: Schema.Types.ObjectId, ref: 'Shop' }],
             bucketName: 'uploads'
           }
           resolve(fileInfo)
@@ -28,5 +29,5 @@ const storage = new GridFsStorage({
   })
 
 const upload = multer({ storage });
-
-module.exports = {upload}
+const metadata = mongoose.model("GFS", new Schema({}, {strict: false}), "uploads.files") 
+module.exports = {upload, metadata}

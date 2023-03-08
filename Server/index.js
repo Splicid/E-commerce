@@ -24,13 +24,13 @@ app.post('/poster', async (req, res) => {
     //     body: req.body.body,
     //     image: req.file.id
     //     })
-    if (req.file){
-        console.log("True")
-        res.end()
-    } else {
-        console.log("False")
-        res.end()
-    }
+    // if (req.file){
+    //     console.log("True")
+    //     res.end()
+    // } else {
+    //     console.log("False")
+    //     res.end()
+    // }
     const indentifier = await Shop.findOne({title: 'test'}).populate('image')
     console.log(indentifier)
     //const insert = await Shop.create({title: req.body.title, price: req.body.price, body: req.body.body })
@@ -43,7 +43,7 @@ const db_insert = async () => {
     const lookup = await Shop.find({})
     console.log(lookup)
 }
-db_insert()
+//db_insert()
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB')
