@@ -16,22 +16,22 @@ app.get('/', (req, res) => {
     res.json({user: 'geek'})
 })
 
-app.post('/poster', async (req, res) => {
-    // console.log(req.file.id)
-    // const ins = await Shop.create({
-    //     title: req.body.title,
-    //     price: req.body.price,
-    //     body: req.body.body,
-    //     image: req.file.id
-    //     })
-    // if (req.file){
-    //     console.log("True")
-    //     res.end()
-    // } else {
-    //     console.log("False")
-    //     res.end()
-    // }
-    const indentifier = await Shop.findOne({title: 'test'}).populate('image')
+app.post('/poster', upload.single('selectedFile'), async (req, res) => {
+    console.log(req.file)
+    const ins = await Shop.create({
+        title: req.body.title,
+        price: req.body.price,
+        body: req.body.body,
+        image: req.file.id
+        })
+    if (req.file){
+        console.log("True")
+        res.end()
+    } else {
+        console.log("False")
+        res.end()
+    }
+    const indentifier = await Shop.findOne({title: 'Hipper'}).populate('image')
     console.log(indentifier)
     //const insert = await Shop.create({title: req.body.title, price: req.body.price, body: req.body.body })
 })
