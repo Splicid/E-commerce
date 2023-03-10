@@ -31,8 +31,7 @@ app.post('/poster', upload.single('selectedFile'), async (req, res) => {
         console.log("False")
         res.end()
     }
-    const indentifier = await Shop.findOne({title: 'Hipper'}).populate('image')
-    console.log(indentifier)
+    const indentifier = await Shop.findOne({title: req.body.title}).populate('image')
     //const insert = await Shop.create({title: req.body.title, price: req.body.price, body: req.body.body })
 })
 
