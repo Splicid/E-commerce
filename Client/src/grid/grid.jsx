@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./grid.css"
+import axios from 'axios'
 import shop from "../assets/stock-photo.jpeg"
 
 const Grid = () => {
@@ -9,6 +10,10 @@ const Grid = () => {
   
     useEffect(() => {
       async function fetchData() {
+        axios.get('http://localhost:3000/formData')
+        .then(function (response){
+            console.log(response)
+        })
         try {
             const response = await fetch('https://dummyjson.com/products/');
             const json = await response.json();

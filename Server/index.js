@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
     res.json({user: 'geek'})
 })
 
+app.get('/formData', (req, res) => {
+    res.json({user: 'TESTER'})
+})
+
 app.post('/poster', upload.single('selectedFile'), async (req, res) => {
     console.log(req.file)
     const ins = await Shop.create({
