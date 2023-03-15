@@ -18,7 +18,7 @@ const Grid = () => {
             const response = await fetch('https://dummyjson.com/products/');
             const json = await response.json();
             setDatas(json.products)
-            console.log(json)
+            //console.log(json)
         } catch (err) {
           setError(err);
         }

@@ -16,8 +16,9 @@ app.get('/', (req, res) => {
     res.json({user: 'geek'})
 })
 
-app.get('/formData', (req, res) => {
-    res.json({user: 'TESTER'})
+app.get('/formData', async (req, res) => {
+    const indentifier = await Shop.findOne({title: "test"}).populate('image')
+    res.json({user: indentifier})
 })
 
 app.post('/poster', upload.single('selectedFile'), async (req, res) => {
