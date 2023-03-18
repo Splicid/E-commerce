@@ -6,37 +6,32 @@ import shop from "../assets/stock-photo.jpeg"
 const Grid = () => {
 
     const [datas, setDatas] = useState([]);
+    const [isloaded, setLoading] = useState(false);
     const [error, setError] = useState(null);
   
     useEffect(() => {
       async function fetchData() {
-        try {
-            const response = await fetch('http://localhost:3000/formData', {
-                method: "GET"
-            });
-            const json = await response.json();
-            setDatas(json.products)
-            console.log(json)
-        } catch (err) {
-          setError(err);
+        axios.get('http://localhost:3000/formData').then(res => {
+            setDatas(res.data.user);
+        }).catch(err => {
+            console.log(err)
+        })
+
+    //     const response = await fetch('http://localhost:3000/formData', {
+    //         method: "GET"
+    //     });
+    //     setDatas(response)
         }
-      }
-  
       fetchData();
     }, []);
-    
+    console.log(datas)
+
     return (
         <section className="grid-content">
             <div className="cards">
-                    {/* {datas.map(element => {
-                        return (
-                            <div className="card">
-                                <img src={element.images[0]} className="card-img"/>
-                                <h3 className='card-title'> {element.title}</h3>
-                                <h1> ${element.price}</h1>
-                            </div>
-                        )
-                    })} */}
+                {datas.forEach((data) => {
+                    <h1 key={datas._id}> {JSON.stringify(datas.body)} </h1>
+                })}
             </div>
         </section>
     )
